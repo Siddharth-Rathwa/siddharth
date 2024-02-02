@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <td>Student Image</td>
-                <td><input type="file" name="Studentimage" required></td>
+                <td><input type="file" name="StudentToupload" required></td>
             </tr>
             <tr>
                 <td>Student Name</td>
@@ -48,7 +48,21 @@
     if(isset($_POST['submit'])){
         $Studentid=$_POST['Studentid'];
         $Studentname=$_POST['Studentname'];
-        $Studentgrno=$_POST['Studetngrno'];
-        $Standard=$_POST['Studentstandard']
+        $Studentgrno=$_POST['Studentgrno'];
+        $Standard=$_POST['Studentstandard'];
+        // set the image
+        $Studentimg=$_FILES["StudentToupload"]["name"];
+        $tmpname=$_FILES["StudentToupload"]["tmp_name"];
+        $Student="student/". $Studentimg;
+        move_uploaded_file($tmpname, $Student);
+        // set the query
+        $query="INSERT INTO tblrecord(Studentid, Studentimg, Studentname, Grnumber, standerd) VALUES($Studentid, '$Student', '$Studentname', $Studentgrno, $Standard)";
+        if(mysqli_query($conn, $query)){
+            echo"<script>alert('Record submit successfully')</script>";
+        }
+        else{
+            echo "Error". mysqli_error($conn);
+        }
+        
     }
 ?>
