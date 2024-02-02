@@ -8,6 +8,7 @@
 
 ?>
 <?php
+    // set the query
     $query=$conn->query("select * from tblrecord");
     if($query->num_rows>0){
         while($row=$query->fetch_assoc()){
