@@ -7,7 +7,37 @@
     echo "connection successfully";
 
 ?>
-<?php
+    <table width="50%">
+        <tr>
+            <td>Student Id</td>
+            <td>Student Image</td>
+            <td>Student Name</td>
+            <td>Gr Number</td>
+            <td>Standard</td>
+        </tr>
+        <!-- set the query -->
+        <?php
+        $result=mysqli_query($conn, "select * from tblrecord");
+        while($row=$result->fetch_assoc()){
+            $Studentid=$row['Studentid'];
+            $Studentimage=$row['Studentimg'];
+            $Studentname=$row['Studentname'];
+            $Grno=$row['Grnumber'];
+            $standard=$row['standerd'];
+            ?>
+            <!-- display the value -->
+            <tr>
+                <td><?php echo $Studentid ?></td>               
+                <td> <img src="<?php echo $Studentimage?>" height="100px" width="100px"></td>                                
+                <td><?php echo $Studentname ?></td>                        
+                <td><?php echo $Grno ?></td>
+                <td><?php echo $standard?></td>
+            </tr>
+            <?php
+        }
+    ?>
+    </table>
+<!-- <?php
     // set the query
     $query=$conn->query("select * from tblrecord");
     if($query->num_rows>0){
@@ -38,4 +68,5 @@
             <?php 
         }
     }
-    ?>
+    ?> -->
+   
