@@ -8,7 +8,7 @@
 
 ?>
     <table width="50%">
-        <tr>
+        <tr bgcolor="whitesmoke">
             <td>Student Id</td>
             <td>Student Image</td>
             <td>Student Name</td>
