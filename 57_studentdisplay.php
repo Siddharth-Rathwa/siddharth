@@ -69,4 +69,5 @@
         }
     }
     ?> -->
+    <a href="56_studentrecord.php">insert the record</a>
    
