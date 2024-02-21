@@ -56,7 +56,7 @@
         $Student="student/". $Studentimg;
         move_uploaded_file($tmpname, $Student);
         // set the query
-        $query="INSERT INTO tblrecord(Studentid, Studentimg, Studentname, Grnumber, standerd) VALUES($Studentid, '$Student', '$Studentname', $Studentgrno, $Standard)";
+        $query="INSERT INTO tblrecord1(Studentid, Studentimg, Studentname, Grnumber, standerd) VALUES($Studentid, '$Student', '$Studentname', $Studentgrno, $Standard)";
         if(mysqli_query($conn, $query)){
             echo"<script>alert('Record submit successfully')</script>";
             header("location:57_studentdisplay.php");

@@ -17,7 +17,7 @@
         </tr>
         <!-- set the query -->
         <?php
-        $result=mysqli_query($conn, "select * from tblrecord");
+        $result=mysqli_query($conn, "select * from tblrecord1");
         while($row=$result->fetch_assoc()){
             $Studentid=$row['Studentid'];
             $Studentimage=$row['Studentimg'];
