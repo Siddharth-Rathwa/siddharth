@@ -7,7 +7,6 @@ if (!$conn) {
 }
 ?>
 <html>
-
 <head>
     <style>
         table a {
@@ -16,7 +15,6 @@ if (!$conn) {
         }
     </style>
 </head>
-
 <body>
     <table width="50%" bgcolor="whitesmoke">
         <tr bgcolor="grey">
@@ -32,7 +30,6 @@ if (!$conn) {
         $result = mysqli_query($conn, "select * from tblemployee");
         while ($row = $result->fetch_assoc()) {
             echo "
-                
                 <tr>
                     <td>" . $row['Empid'] . "</td>
                     <td>" . $row['Empname'] . "</td>
