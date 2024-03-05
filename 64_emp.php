@@ -12,6 +12,11 @@ if (!$conn) {
         table a {
             text-decoration: none;
             padding: 5px 2px;
+            display: block;
+            background-color: red;
+            color: white;
+            border-radius: 30px;
+            text-align: center;
         }
     </style>
 </head>
@@ -48,7 +53,6 @@ if (!$conn) {
     </table>
     <a href="63_emp.php">insert Record</a>
 </body>
-cd
 </html>
 <?php
 // creat the delete query
@@ -126,7 +130,10 @@ if (isset($_POST['submit'])) {
     $sql = "UPDATE tblemployee SET Empid=$Empid, Empname='$Empname', Empuser='$Empuser', Emppass=$Emppass, Empgender='$Empgender', Empcontact=$Empcontact WHERE Empid=$eid";
     if (mysqli_query($conn, $sql)) {
         echo "Record update successfully";
-        header("location:64_emp.php");
+        // header("location:64_emp.php");
+        ?>
+            <meta http-equiv="refresh" content="1; url= http://localhost/siddharth/64_emp.php" />
+        <?php
     } else {
         echo "Error " . mysqli_error($conn);
     }
