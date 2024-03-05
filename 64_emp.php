@@ -48,7 +48,7 @@ if (!$conn) {
     </table>
     <a href="63_emp.php">insert Record</a>
 </body>
-
+cd
 </html>
 <?php
 // creat the delete query
