@@ -16,9 +16,10 @@ if (!$conn) {
     </style>
 </head>
 <body>
-    <table width="50%" bgcolor="whitesmoke">
+    <table width="70%" bgcolor="whitesmoke">
         <tr bgcolor="grey">
             <td>Employee Id</td>
+            <td>Employee image</td>
             <td>Employee Name</td>
             <td>User Name</td>
             <td>Password</td>
@@ -32,6 +33,7 @@ if (!$conn) {
             echo "
                 <tr>
                     <td>" . $row['Empid'] . "</td>
+                    <td> <img src=". $row['Empimage']." height='190px' width='150px'></td>
                     <td>" . $row['Empname'] . "</td>
                     <td>" . $row['Empuser'] . "</td>
                     <td>" . $row['Emppass'] . "</td>
@@ -55,6 +57,7 @@ if (isset($_GET['did'])) {
     $sql = "DELETE FROM tblemployee WHERE Empid=$did";
     if (mysqli_query($conn, $sql)) {
         echo "Delete successfully";
+        header("location:64_emp.php");
     } else {
         echo "Error " . mysqli_error($conn);
     }

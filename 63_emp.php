@@ -13,7 +13,11 @@ if (!$conn) {
         <table>
             <tr>
                 <td>Employee Id</td>
-                <td><input type="text" name="Empid" required value="$row[empid]"></td>
+                <td><input type="text" name="Empid" required></td>
+            </tr>
+            <tr>
+                <td>Upload image</td>
+                <td><input type="file" name="filetoupload"></td>
             </tr>
             <tr>
                 <td>Name</td>
@@ -52,8 +56,13 @@ if (isset($_POST['submit'])) {
     $Emppass = $_POST['Emppass'];
     $Empgender = $_POST['gender'];
     $Empcontact = $_POST['contact'];
+    // set the image 
+    $image=$_FILES['filetoupload']['name'];
+    $img_tmp=$_FILES['filetoupload']['tmp_name'];
+    $folder="empimages/". $image;
+    move_uploaded_file($img_tmp, $folder);
     // set the query
-    $sql = "INSERT INTO tblemployee(Empid, Empname, Empuser, Emppass, Empgender, Empcontact) VALUES($Empid, '$Empname', '$Empuser', $Emppass, '$Empgender', $Empcontact)";
+    $sql = "INSERT INTO tblemployee(Empid,Empimage, Empname, Empuser, Emppass, Empgender, Empcontact) VALUES($Empid,'$folder', '$Empname', '$Empuser', $Emppass, '$Empgender', $Empcontact)";
     // run the query
     if (mysqli_query($conn, $sql)) {
         echo "<script> alert('Record submit successfully')</script>";
