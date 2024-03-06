@@ -1,4 +1,6 @@
 <?php
+session_start();
+    echo "<script>alert('welcome to the Display page ')</script>". $_SESSION["user_name"]. "<br>";
 $conn = mysqli_connect("localhost", "root", "", "dbemp");
 if (!$conn) {
     echo "connection failed" . mysqli_connect_error();
@@ -32,7 +34,15 @@ if (!$conn) {
             <td>Contact Number</td>
             <td colspan="2">Edit</td>
         </tr>
+        <!-- user log in session -->
         <?php
+        $userprofile=$_SESSION['user_name'];
+        if($userprofile==true){
+
+        }
+        else{
+            header("location:62_login.php");
+        }
         $result = mysqli_query($conn, "select * from tblemployee");
         while ($row = $result->fetch_assoc()) {
             echo "
@@ -52,6 +62,7 @@ if (!$conn) {
         ?>
     </table>
     <a href="63_emp.php">insert Record</a>
+    <a href="65_logout.php"><input type="submit" name="submit" value="logout"></a>
 </body>
 </html>
 <?php
