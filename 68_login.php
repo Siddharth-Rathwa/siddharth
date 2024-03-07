@@ -4,7 +4,7 @@ $conn = mysqli_connect("localhost", "root", "", "studentrecord");
 if (!$conn) {
     echo "login failed";
 } else {
-    echo "connection successfully";
+    echo "<script>alert('connection successfully')</script>";
 }
 ?>
 <html>
@@ -54,6 +54,13 @@ if (!$conn) {
             background-color: greenyellow;
             display: flex;
         }
+        a{
+            text-decoration: none;
+        }
+        a input[type="submit"]{
+            width: 20%;
+            float: right;
+        }
     </style>
 </head>
 
@@ -64,8 +71,9 @@ if (!$conn) {
             <label for="user">Enter a user Name</label>
             <input type="text" name="user">
             <label for="password">Enter a password</label>
-            <input type="text" name="password">
+            <input type="password" name="password">
             <input type="submit" name="submit" value="Login">
+            <a href="66_studentfrom.php">if you have don't account please click the link ?</a>
         </div>
     </form>
     <?php

@@ -4,7 +4,7 @@
         echo "login failed";
     }
     else{
-        echo "connection successfully";
+        echo "<script>alert('connection successfully')</script>";
     }
 ?>
 <!DOCTYPE html>
